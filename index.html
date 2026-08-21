@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaishali & Abhinav — Engagement</title>
+    <meta name="description" content="You are cordially invited to the engagement ceremony of Vaishali Singh and Abhinav Singh Chauhan — 12th October 2026, Hotel Damson Plum, Lucknow.">
+
+    <!-- Social share preview (WhatsApp/Facebook/etc.) — og:image needs an absolute URL once this site is deployed to a real domain, e.g. https://your-domain.com/videos/hero-engagement-poster.jpg -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Vaishali & Abhinav — Engagement">
+    <meta property="og:description" content="You are cordially invited to the engagement ceremony of Vaishali Singh and Abhinav Singh Chauhan — 12th October 2026, Hotel Damson Plum, Lucknow.">
+    <meta property="og:image" content="videos/hero-engagement-poster.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vaishali & Abhinav — Engagement">
+    <meta name="twitter:description" content="You are cordially invited to the engagement ceremony of Vaishali Singh and Abhinav Singh Chauhan — 12th October 2026, Hotel Damson Plum, Lucknow.">
+    <meta name="twitter:image" content="videos/hero-engagement-poster.jpg">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='12' cy='19' r='9' fill='none' stroke='%23c98a45' stroke-width='3'/%3E%3Ccircle cx='20' cy='19' r='9' fill='none' stroke='%23c98a45' stroke-width='3'/%3E%3Ccircle cx='16' cy='8' r='3' fill='%23d9718f'/%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Tiro+Devanagari+Hindi:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=21">
+</head>
+<body class="locked">
+
+    <!-- Fixed WebGL background: ring, gem, and drifting light particles -->
+    <canvas id="scene-canvas"></canvas>
+
+    <!-- Grain / vignette overlay for a premium filmic finish -->
+    <div class="grain-overlay"></div>
+
+    <!-- Progress ring showing scroll position -->
+    <svg class="scroll-progress" id="scroll-progress" viewBox="0 0 44 44" aria-hidden="true">
+        <circle class="scroll-progress-track" cx="22" cy="22" r="19"></circle>
+        <circle class="scroll-progress-bar" id="scroll-progress-bar" cx="22" cy="22" r="19"></circle>
+    </svg>
+
+    <!-- Invitation Cover / Entrance Overlay -->
+    <div class="envelope-overlay" id="envelope">
+        <div class="envelope-container spotlight" id="envelope-card">
+            <span class="corner-motif corner-tl" aria-hidden="true"></span>
+            <div class="ganesh-badge">
+                <img src="images/ganesh-ji.jpg" alt="Lord Ganesha" width="700" height="700" loading="eager">
+            </div>
+            <span class="ganesh-invocation">
+                <span class="deva">श्री गणेशाय नमः</span>
+                <span class="deva-translit">Shree Ganeshay Namah</span>
+                <span class="deva sloka">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br>निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥</span>
+                <span class="deva-translit sloka-translit">Vakratunda Mahakaya Suryakoti Samaprabha,<br>Nirvighnam Kuru Me Deva Sarva-Kaaryeshu Sarvada</span>
+            </span>
+            <span class="cover-kicker">Together with their families</span>
+            <p class="cover-line">You are cordially invited to the engagement ceremony of</p>
+            <h1 class="cover-names">Vaishali <span class="amp">&amp;</span> Abhinav</h1>
+            <p class="cover-date">12<sup>th</sup> October 2026 · Lucknow</p>
+            <button type="button" class="enter-btn" id="wax-seal" aria-label="Open Invitation">
+                <span class="enter-btn-ring">
+                    <svg class="enter-btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="kalashPot" x1="6" y1="8" x2="18" y2="20" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stop-color="#e79a5f"/>
+                                <stop offset="0.55" stop-color="#cf6f39"/>
+                                <stop offset="1" stop-color="#a84f27"/>
+                            </linearGradient>
+                            <radialGradient id="kalashCoconut" cx="0.35" cy="0.3" r="0.8">
+                                <stop offset="0" stop-color="#9c754a"/>
+                                <stop offset="1" stop-color="#5c3f22"/>
+                            </radialGradient>
+                        </defs>
+                        <path d="M10.6 5.4C8.7 3.6 7 3.4 5.8 4.3 6.6 6 8.3 6.8 10 6.6c.3-.05.5-.1.6-1.2Z" fill="#75a65a" stroke="#4c7a3c" stroke-width="0.3"/>
+                        <path d="M13.4 5.4C15.3 3.6 17 3.4 18.2 4.3 17.4 6 15.7 6.8 14 6.6c-.3-.05-.5-.1-.6-1.2Z" fill="#83b566" stroke="#4c7a3c" stroke-width="0.3"/>
+                        <circle cx="12" cy="3.1" r="1.7" fill="url(#kalashCoconut)" stroke="#3f2a15" stroke-width="0.25"/>
+                        <path d="M11 2.4c.3.5.3 1.1 0 1.6M13 2.4c-.3.5-.3 1.1 0 1.6" fill="none" stroke="#c9a876" stroke-width="0.25"/>
+                        <ellipse cx="12" cy="5.4" rx="1.9" ry="0.55" fill="#d97f45" stroke="#8a4a22" stroke-width="0.25"/>
+                        <path d="M9.4 8.4c-.1-1.1 0-2.1.3-2.9M14.4 8.4c.1-1.1 0-2.1-.3-2.9" fill="none" stroke="#8a4a22" stroke-width="0.9"/>
+                        <path d="M6.6 13.6c0-1 .1-1.9.3-2.5.3-1.7 1.3-2.7 2.2-2.7h6c.9 0 1.9 1 2.2 2.7.2.6.3 1.5.3 2.5 0 3.5-2.5 6.1-5.5 6.1s-5.5-2.6-5.5-6.1z" fill="url(#kalashPot)" stroke="#7a3a1c" stroke-width="0.4"/>
+                        <path d="M7.3 15.6c1 .4 2 .4 3 0s2-.4 3 0 2 .4 3 0" fill="none" stroke="#f3d9a8" stroke-width="0.5" opacity="0.85"/>
+                        <circle cx="9" cy="17.2" r="0.45" fill="#c23a4e"/>
+                        <circle cx="12" cy="17.6" r="0.5" fill="#f0b93f"/>
+                        <circle cx="15" cy="17.2" r="0.45" fill="#c23a4e"/>
+                        <ellipse cx="12" cy="19.9" rx="4.2" ry="0.5" fill="#7a3a1c" opacity="0.25"/>
+                    </svg>
+                </span>
+                <span class="enter-btn-label">Open Invitation</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Vakratunda Mahakaya invocation — plays once the invitation is opened -->
+    <audio id="sloka-audio" src="audio/sloka.mp3" loop preload="auto"></audio>
+
+    <!-- App Header & Navigation -->
+    <header>
+        <a href="#hero" class="logo">V<span>❖</span>A</a>
+        <div class="header-actions">
+            <nav id="nav-menu">
+                <a href="#hero">Home</a>
+                <a href="#events">Celebration</a>
+                <a href="#rsvp">RSVP</a>
+            </nav>
+            <button type="button" class="sound-toggle" id="sound-toggle" aria-label="Mute chant" aria-pressed="false">
+                <svg class="icon-sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M17 8.5c1.5 1.9 1.5 5.1 0 7M19.5 6c2.5 3 2.5 9 0 12"/></svg>
+                <svg class="icon-sound-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 9l6 6M22 9l-6 6"/></svg>
+            </button>
+            <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-video-bg" aria-hidden="true">
+                <video autoplay muted loop playsinline preload="auto" poster="videos/hero-engagement-poster.jpg?v=2" id="hero-video">
+                    <source src="videos/hero-engagement.webm?v=2" type="video/webm">
+                    <source src="videos/hero-engagement.mp4?v=2" type="video/mp4">
+                </video>
+                <div class="hero-video-overlay"></div>
+            </div>
+            <div class="hero-card fade-in-up spotlight">
+                <span class="corner-motif corner-br" aria-hidden="true"></span>
+                <div class="ganesh-badge small">
+                    <img src="images/ganesh-ji.jpg" alt="Lord Ganesha" width="700" height="700" loading="lazy">
+                </div>
+                <span class="hero-subtitle">Save The Date</span>
+                <span class="deva deva-accent">शुभ सगाई</span>
+                <h1 class="hero-names"><span class="name-pop">Vaishali Singh</span> <span class="amp" id="hero-amp" role="button" tabindex="0" aria-label="Tap to celebrate">&amp;</span> <span class="name-pop">Abhinav Singh Chauhan</span></h1>
+                <p class="hero-event">Request the honour of your presence at their Engagement Ceremony</p>
+                <div class="hero-date">Monday, 12th October 2026 · Hotel Damson Plum, Lucknow</div>
+                <button type="button" class="add-calendar-btn" id="add-calendar-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg>
+                    Add to Calendar
+                </button>
+
+                <!-- Countdown Timer -->
+                <div class="countdown-container" id="countdown">
+                    <div class="countdown-box">
+                        <span class="countdown-value" id="days">00</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span class="countdown-value" id="hours">00</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-label">Mins</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-label">Secs</span>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="scroll-cue" id="scroll-cue" aria-label="Scroll down">
+                <span></span>
+            </button>
+        </section>
+
+        <!-- Events Section -->
+        <section class="section" id="events">
+            <div class="section-title fade-in-up">
+                <span class="section-eyebrow">Join Us</span>
+                <h2>The Celebration</h2>
+                <span class="deva deva-accent">समारोह</span>
+            </div>
+
+            <div class="events-grid">
+                <div class="event-card fade-in-up" tabindex="0" role="button" aria-label="Bariksha Ceremony — flip for dress code and details">
+                    <span class="event-node" aria-hidden="true"></span>
+                    <div class="event-card-inner">
+                        <div class="event-card-face event-card-front spotlight">
+                            <span class="corner-motif corner-br" aria-hidden="true"></span>
+                            <span class="event-arch" aria-hidden="true"></span>
+                            <div class="event-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <defs>
+                                        <radialGradient id="diyaFlame" cx="0.5" cy="0.25" r="0.85">
+                                            <stop offset="0" stop-color="#fff3c4"/>
+                                            <stop offset="0.5" stop-color="#f7a83c"/>
+                                            <stop offset="1" stop-color="#d94f1e"/>
+                                        </radialGradient>
+                                        <linearGradient id="diyaBowl" x1="3" y1="12" x2="21" y2="17" gradientUnits="userSpaceOnUse">
+                                            <stop offset="0" stop-color="#e79a5f"/>
+                                            <stop offset="1" stop-color="#a84f27"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M12 4.5c1.8 2 2.5 3.6 2.5 5 0 1.6-1.1 2.7-2.5 2.7s-2.5-1.1-2.5-2.7c0-1.4.7-3 2.5-5z" fill="url(#diyaFlame)" stroke="#b6360f" stroke-width="0.3"/>
+                                    <path d="M12 12.2v1.6" stroke="#8a4a22" stroke-width="0.9"/>
+                                    <path d="M3.5 14.2c2.8-2 14.2-2 17 0-2.8 2-14.2 2-17 0z" fill="url(#diyaBowl)" stroke="#7a3a1c" stroke-width="0.4"/>
+                                    <path d="M5.5 14.1c2.2-1.2 10.8-1.2 13 0" fill="none" stroke="#f3d9a8" stroke-width="0.4" opacity="0.7"/>
+                                </svg>
+                            </div>
+                            <h3>Bariksha Ceremony</h3>
+                            <div class="event-time">10:30 AM onwards</div>
+                            <div class="event-venue">The Grand Ballroom, Hotel Damson Plum, Lucknow</div>
+                            <span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 1 1 3 6.7M3 12v5h5"/></svg>Tap for details</span>
+                        </div>
+                        <div class="event-card-face event-card-back spotlight">
+                            <div class="event-dress">Festive Traditional · Amber &amp; Plum</div>
+                            <p class="event-note">Traditional blessings and rituals as both families come together to mark the beginning of the celebrations.</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Damson+Plum%2C+Amar+Shaheed+Path%2C+Golf+City%2C+Lucknow%2C+Uttar+Pradesh+226030" target="_blank" rel="noopener" class="map-btn">View Map</a>
+                            <span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 1 1 3 6.7M3 12v5h5"/></svg>Back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-card fade-in-up" tabindex="0" role="button" aria-label="Godh Bharai — flip for dress code and details">
+                    <span class="event-node" aria-hidden="true"></span>
+                    <div class="event-card-inner">
+                        <div class="event-card-face event-card-front spotlight">
+                            <span class="corner-motif corner-br" aria-hidden="true"></span>
+                            <span class="event-arch" aria-hidden="true"></span>
+                            <div class="event-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <defs>
+                                        <linearGradient id="handsGrad" x1="4" y1="12" x2="20" y2="19" gradientUnits="userSpaceOnUse">
+                                            <stop offset="0" stop-color="#eec18a"/>
+                                            <stop offset="1" stop-color="#c98a45"/>
+                                        </linearGradient>
+                                        <radialGradient id="petalGrad" cx="0.35" cy="0.3" r="0.8">
+                                            <stop offset="0" stop-color="#f8c7d8"/>
+                                            <stop offset="1" stop-color="#d9718f"/>
+                                        </radialGradient>
+                                    </defs>
+                                    <path d="M4 12c0 4.2 3.6 6.5 8 6.5s8-2.3 8-6.5" fill="none" stroke="url(#handsGrad)" stroke-width="1.8"/>
+                                    <path d="M4 12c1.1-1.1 2.4-1.1 3.2-.2M20 12c-1.1-1.1-2.4-1.1-3.2-.2" fill="none" stroke="url(#handsGrad)" stroke-width="1.4"/>
+                                    <circle cx="9" cy="5.2" r="0.9" fill="url(#petalGrad)"/>
+                                    <circle cx="12" cy="3.6" r="0.9" fill="url(#petalGrad)"/>
+                                    <circle cx="15" cy="5.2" r="0.9" fill="url(#petalGrad)"/>
+                                    <path d="M9 6.6v2M12 5v2.2M15 6.6v2" stroke="#8a5a3a" stroke-width="0.6"/>
+                                </svg>
+                            </div>
+                            <h3>Godh Bharai</h3>
+                            <div class="event-time">12:00 PM onwards</div>
+                            <div class="event-venue">The Royal Lawns, Hotel Damson Plum, Lucknow</div>
+                            <span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 1 1 3 6.7M3 12v5h5"/></svg>Tap for details</span>
+                        </div>
+                        <div class="event-card-face event-card-back spotlight">
+                            <div class="event-dress">Traditional Attire · Pastels &amp; Gold</div>
+                            <p class="event-note">A cherished family ritual, showering Vaishali with blessings, love, and good wishes.</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Damson+Plum%2C+Amar+Shaheed+Path%2C+Golf+City%2C+Lucknow%2C+Uttar+Pradesh+226030" target="_blank" rel="noopener" class="map-btn">View Map</a>
+                            <span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 1 1 3 6.7M3 12v5h5"/></svg>Back</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-card fade-in-up" tabindex="0" role="button" aria-label="Engagement — flip for dress code and details">
+                    <span class="event-node" aria-hidden="true"></span>
+                    <div class="event-card-inner">
+                        <div class="event-card-face event-card-front spotlight">
+                            <span class="corner-motif corner-br" aria-hidden="true"></span>
+                            <span class="event-arch" aria-hidden="true"></span>
+                            <div class="event-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <defs>
+                                        <linearGradient id="ringGrad" x1="4" y1="10" x2="20" y2="20" gradientUnits="userSpaceOnUse">
+                                            <stop offset="0" stop-color="#f6d896"/>
+                                            <stop offset="0.5" stop-color="#d9a44f"/>
+                                            <stop offset="1" stop-color="#a8752c"/>
+                                        </linearGradient>
+                                        <radialGradient id="engPetalGrad" cx="0.35" cy="0.3" r="0.8">
+                                            <stop offset="0" stop-color="#f8c7d8"/>
+                                            <stop offset="1" stop-color="#d9718f"/>
+                                        </radialGradient>
+                                    </defs>
+                                    <circle cx="8.7" cy="14.5" r="5.3" fill="none" stroke="url(#ringGrad)" stroke-width="1.8"/>
+                                    <circle cx="15.3" cy="14.5" r="5.3" fill="none" stroke="url(#ringGrad)" stroke-width="1.8"/>
+                                    <path d="M12 3.2v2.6" stroke="#4c7a3c" stroke-width="0.7"/>
+                                    <path d="M10.3 4.6c.6.7 1 1.3 1.7 1.6M13.7 4.6c-.6.7-1 1.3-1.7 1.6" fill="none" stroke="#4c7a3c" stroke-width="0.6"/>
+                                    <circle cx="12" cy="6.4" r="1" fill="url(#engPetalGrad)"/>
+                                </svg>
+                            </div>
+                            <h3>Engagement</h3>
+                            <div class="event-time">02:30 PM onwards</div>
+                            <div class="event-venue">The Banquet Hall, Hotel Damson Plum, Lucknow</div>
+                            <span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 1 1 3 6.7M3 12v5h5"/></svg>Tap for details</span>
+                        </div>
+                        <div class="event-card-face event-card-back spotlight">
+                            <div class="event-dress">Formal Ethnic · Wine &amp; Gold</div>
+                            <p class="event-note">The exchange of rings — Vaishali and Abhinav officially begin their journey to forever.</p>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Damson+Plum%2C+Amar+Shaheed+Path%2C+Golf+City%2C+Lucknow%2C+Uttar+Pradesh+226030" target="_blank" rel="noopener" class="map-btn">View Map</a>
+                            <span class="flip-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 1 1 3 6.7M3 12v5h5"/></svg>Back</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Form Section -->
+        <section class="section" id="rsvp">
+            <span class="deva deva-accent center">सादर आमंत्रण</span>
+            <div class="rsvp-wrapper fade-in-up spotlight">
+                <span class="corner-motif corner-br" aria-hidden="true"></span>
+                <form id="rsvp-form">
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="rsvp-name">Full Name</label>
+                            <input type="text" id="rsvp-name" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rsvp-guests">Number of Guests</label>
+                            <select id="rsvp-guests" class="form-control">
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                                <option value="5">5+ Guests</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="rsvp-submit-btn">Send RSVP</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">V<span>❖</span>A</div>
+        <span class="deva deva-accent">धन्यवाद</span>
+        <div class="footer-quote">Two souls, one heart, a journey together that is about to start.</div>
+        <div class="footer-divider"></div>
+        <div class="footer-credits">
+            &copy; 2026 Vaishali &amp; Abhinav's Engagement. Handcrafted with love.
+        </div>
+    </footer>
+
+    <!-- Three.js (module build) for the live 3D scene -->
+    <script type="importmap">
+        { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script type="module" src="scene.js?v=4"></script>
+    <script src="script.js?v=6"></script>
+</body>
+</html>
