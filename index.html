@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Tiro+Devanagari+Hindi:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=21">
+    <link rel="stylesheet" href="styles.css?v=23">
 </head>
 <body class="locked">
 
@@ -87,8 +87,10 @@
         </div>
     </div>
 
-    <!-- Vakratunda Mahakaya invocation — plays once the invitation is opened -->
+    <!-- Vakratunda Mahakaya invocation — plays on the cover screen -->
     <audio id="sloka-audio" src="audio/sloka.mp3" loop preload="auto"></audio>
+    <!-- Background music — takes over once the invitation is opened -->
+    <audio id="bg-music" src="audio/background-music.mp3" loop preload="auto"></audio>
 
     <!-- App Header & Navigation -->
     <header>
@@ -122,15 +124,53 @@
                 <div class="hero-video-overlay"></div>
             </div>
             <div class="hero-card fade-in-up spotlight">
+                <span class="corner-motif corner-tl" aria-hidden="true"></span>
                 <span class="corner-motif corner-br" aria-hidden="true"></span>
                 <div class="ganesh-badge small">
                     <img src="images/ganesh-ji.jpg" alt="Lord Ganesha" width="700" height="700" loading="lazy">
                 </div>
-                <span class="hero-subtitle">Save The Date</span>
+                <span class="hero-subtitle">Together With Their Families</span>
                 <span class="deva deva-accent">शुभ सगाई</span>
-                <h1 class="hero-names"><span class="name-pop">Vaishali Singh</span> <span class="amp" id="hero-amp" role="button" tabindex="0" aria-label="Tap to celebrate">&amp;</span> <span class="name-pop">Abhinav Singh Chauhan</span></h1>
-                <p class="hero-event">Request the honour of your presence at their Engagement Ceremony</p>
-                <div class="hero-date">Monday, 12th October 2026 · Hotel Damson Plum, Lucknow</div>
+
+                <div class="invite-names-block">
+                    <div class="invite-person">
+                        <h2 class="invite-name">Vaishali</h2>
+                        <p class="invite-parent">Daughter of<br>Mr. Ranjeet Singh &amp; Mrs. Veenam Singh</p>
+                    </div>
+                    <span class="invite-and" id="hero-amp" role="button" tabindex="0" aria-label="Tap to celebrate">AND</span>
+                    <div class="invite-person">
+                        <h2 class="invite-name">Abhinav</h2>
+                        <p class="invite-parent">Son of<br>Mr. Ashok Kumar Singh Chauhan &amp; Mrs. Suman Singh Chauhan</p>
+                    </div>
+                </div>
+
+                <p class="hero-event">Cordially invite you to celebrate their Engagement Ceremony and bless them as they begin a beautiful new journey together.</p>
+
+                <div class="invite-datetime-row">
+                    <div class="invite-datetime-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg>
+                        <div>
+                            <span class="invite-dt-label">Date</span>
+                            <span class="invite-dt-value">12th October 2026<br>Monday</span>
+                        </div>
+                    </div>
+                    <div class="invite-datetime-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+                        <div>
+                            <span class="invite-dt-label">Time</span>
+                            <span class="invite-dt-value">10:30 AM onwards</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="invite-venue-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-6.5-5.8-6.5-11A6.5 6.5 0 0 1 18.5 10c0 5.2-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></svg>
+                    <span class="invite-venue-name">Hotel Damson Plum</span>
+                    <span class="invite-venue-address">Amar Shaheed Path, Golf City, Lucknow</span>
+                </div>
+
+                <p class="invite-closing">Your presence will make our celebration truly special.</p>
+
                 <button type="button" class="add-calendar-btn" id="add-calendar-btn">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg>
                     Add to Calendar
@@ -338,6 +378,6 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script type="module" src="scene.js?v=4"></script>
-    <script src="script.js?v=6"></script>
+    <script src="script.js?v=8"></script>
 </body>
 </html>

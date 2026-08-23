@@ -18,14 +18,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const enterBtn = document.getElementById('wax-seal');
     const body = document.body;
     const slokaAudio = document.getElementById('sloka-audio');
+    const bgMusic = document.getElementById('bg-music');
     const soundToggle = document.getElementById('sound-toggle');
+    let audioMuted = false;
+
+    function setAudioMuted(muted) {
+        audioMuted = muted;
+        if (slokaAudio) slokaAudio.muted = muted;
+        if (bgMusic) bgMusic.muted = muted;
+        if (soundToggle) {
+            soundToggle.classList.toggle('muted', muted);
+            soundToggle.setAttribute('aria-pressed', String(muted));
+            soundToggle.setAttribute('aria-label', muted ? 'Unmute music' : 'Mute music');
+        }
+    }
+
+    // Try to play the chant the moment the cover lands. Browsers block audio
+    // with sound until the user has interacted with the page at least once,
+    // so this silently fails in most cases — the listener below catches the
+    // very first tap/click/keypress anywhere on the page as a fallback.
+    if (slokaAudio) {
+        slokaAudio.volume = 0.55;
+        slokaAudio.play().catch(() => {});
+
+        const startSlokaOnFirstInteraction = () => {
+            if (slokaAudio.paused && !envelope.classList.contains('opened')) {
+                slokaAudio.play().catch(() => {});
+            }
+            document.removeEventListener('pointerdown', startSlokaOnFirstInteraction);
+            document.removeEventListener('keydown', startSlokaOnFirstInteraction);
+        };
+        document.addEventListener('pointerdown', startSlokaOnFirstInteraction);
+        document.addEventListener('keydown', startSlokaOnFirstInteraction);
+    }
 
     if (enterBtn && envelope) {
         enterBtn.addEventListener('click', () => {
             sfxOpen.play().catch(() => {});
             if (slokaAudio) {
-                slokaAudio.volume = 0.55;
-                slokaAudio.play().catch(() => {});
+                slokaAudio.pause();
+            }
+            if (bgMusic) {
+                bgMusic.volume = 0.45;
+                bgMusic.muted = audioMuted;
+                bgMusic.currentTime = 0;
+                bgMusic.play().catch(() => {});
             }
             envelope.classList.add('opened');
             body.classList.remove('locked');
@@ -34,12 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (soundToggle && slokaAudio) {
+    if (soundToggle) {
         soundToggle.addEventListener('click', () => {
-            slokaAudio.muted = !slokaAudio.muted;
-            soundToggle.classList.toggle('muted', slokaAudio.muted);
-            soundToggle.setAttribute('aria-pressed', String(slokaAudio.muted));
-            soundToggle.setAttribute('aria-label', slokaAudio.muted ? 'Unmute chant' : 'Mute chant');
+            setAudioMuted(!audioMuted);
         });
     }
 

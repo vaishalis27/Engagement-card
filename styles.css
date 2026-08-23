@@ -130,6 +130,9 @@ header, main, footer, .envelope-overlay, .scroll-progress {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 24px 16px;
     transition: opacity 1s var(--ease-out), visibility 1s;
     perspective: 1400px;
 }
@@ -649,39 +652,66 @@ nav a:hover::after {
     transform: translateZ(40px);
 }
 
-.hero-names {
+.invite-names-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 22px;
+    transform: translateZ(60px);
+}
+
+.invite-person {
+    margin-bottom: 4px;
+}
+
+.invite-name {
+    display: inline-block;
     font-family: var(--font-display);
-    font-weight: 500;
+    font-weight: 600;
     font-style: italic;
-    font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+    font-size: clamp(2rem, 6vw, 2.9rem);
     line-height: 1.2;
-    margin-bottom: 24px;
+    cursor: default;
     background: linear-gradient(135deg, var(--accent-deep) 0%, var(--accent) 45%, var(--accent-bright) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    transform: translateZ(60px);
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.35s var(--ease-spring), filter 0.35s;
 }
 
-.hero-names .amp {
-    font-family: var(--font-sans);
-    font-style: normal;
-    font-weight: 300;
-    font-size: 0.5em;
-    color: var(--accent-deep);
-    -webkit-text-fill-color: var(--accent-deep);
+.invite-name:hover,
+.invite-name:focus-visible {
+    transform: translateY(-5px) scale(1.03);
+    filter: drop-shadow(0 6px 14px rgba(201, 90, 120, 0.35));
+}
+
+.invite-parent {
+    font-size: 0.78rem;
+    line-height: 1.6;
+    color: var(--text-soft);
+    letter-spacing: 0.3px;
+}
+
+.invite-and {
     display: inline-block;
-    margin: 0 6px;
+    margin: 10px 0;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 4px;
+    color: var(--accent);
     cursor: pointer;
     transition: transform 0.25s var(--ease-spring);
 }
 
-.hero-names .amp:hover,
-.hero-names .amp:focus-visible {
-    transform: scale(1.2);
+.invite-and:hover,
+.invite-and:focus-visible {
+    transform: scale(1.18);
 }
 
-.hero-names .amp.pulse {
+.invite-and.pulse {
     animation: amp-pulse 0.6s var(--ease-spring);
 }
 
@@ -692,41 +722,98 @@ nav a:hover::after {
     100% { transform: scale(1) rotate(0deg); }
 }
 
-.hero-names .name-pop {
-    display: inline-block;
-    cursor: default;
-    background: linear-gradient(135deg, var(--accent-deep) 0%, var(--accent) 45%, var(--accent-bright) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    transition: transform 0.35s var(--ease-spring), filter 0.35s;
-}
-
-.hero-names .name-pop:hover,
-.hero-names .name-pop:focus-visible {
-    transform: translateY(-5px) scale(1.03);
-    filter: drop-shadow(0 6px 14px rgba(201, 90, 120, 0.35));
-}
-
 .hero-event {
     font-family: var(--font-display);
     font-style: italic;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: var(--text-soft);
-    margin-bottom: 14px;
-    max-width: 520px;
+    margin-bottom: 22px;
+    max-width: 480px;
     transform: translateZ(30px);
 }
 
-.hero-date {
-    font-size: 0.85rem;
-    letter-spacing: 1.5px;
-    color: var(--accent-light);
-    font-weight: 600;
-    margin-bottom: 18px;
+.invite-datetime-row {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    transform: translateZ(30px);
+}
+
+.invite-datetime-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+}
+
+.invite-datetime-item svg {
+    width: 22px;
+    height: 22px;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.invite-dt-label {
+    display: block;
+    font-size: 0.62rem;
     text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.invite-dt-value {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.invite-venue-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 26px;
+    border: 1px dashed var(--border-accent);
+    border-radius: 14px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.35);
+    transform: translateZ(30px);
+}
+
+.invite-venue-box svg {
+    width: 18px;
+    height: 18px;
+    color: var(--accent);
+    margin-bottom: 2px;
+}
+
+.invite-venue-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--accent-deep);
+}
+
+.invite-venue-address {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.invite-closing {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    text-align: center;
+    margin-bottom: 22px;
     transform: translateZ(30px);
 }
 
@@ -1432,7 +1519,62 @@ footer {
     }
 
     .envelope-container {
-        padding: 44px 26px;
+        padding: 32px 24px;
+    }
+
+    .ganesh-badge {
+        width: 92px;
+        height: 92px;
+        margin-bottom: 14px;
+    }
+
+    .ganesh-invocation {
+        margin-bottom: 14px;
+    }
+
+    .deva.sloka {
+        font-size: 0.76rem;
+        margin-top: 8px;
+    }
+
+    .deva-translit.sloka-translit {
+        margin-top: 2px;
+    }
+
+    .cover-kicker {
+        margin-bottom: 14px;
+    }
+
+    .cover-line {
+        margin-bottom: 10px;
+    }
+
+    .cover-names {
+        margin-bottom: 12px;
+    }
+
+    .cover-date {
+        margin-bottom: 22px;
+    }
+
+    .enter-btn {
+        width: 80px;
+        height: 80px;
+        gap: 10px;
+    }
+
+    .enter-btn-ring {
+        width: 54px;
+        height: 54px;
+    }
+
+    .enter-btn-ring::after {
+        inset: 11px;
+    }
+
+    .enter-btn-icon {
+        width: 26px;
+        height: 26px;
     }
 
     .scroll-progress {
@@ -1441,6 +1583,36 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .envelope-overlay {
+        padding: 16px 12px;
+        align-items: flex-start;
+    }
+
+    .envelope-container {
+        padding: 26px 18px;
+        margin: auto 0;
+    }
+
+    .ganesh-badge {
+        width: 76px;
+        height: 76px;
+        margin-bottom: 10px;
+    }
+
+    .deva.sloka {
+        font-size: 0.7rem;
+        line-height: 1.5;
+    }
+
+    .deva-translit.sloka-translit {
+        font-size: 0.66rem;
+        line-height: 1.5;
+    }
+
+    .cover-names {
+        font-size: clamp(1.8rem, 9vw, 2.6rem);
+    }
+
     .countdown-container {
         gap: 8px;
     }
@@ -1451,11 +1623,6 @@ footer {
 
     .countdown-label {
         font-size: 0.58rem;
-    }
-
-    .hero-names .amp {
-        display: block;
-        margin: 6px auto;
     }
 }
 
