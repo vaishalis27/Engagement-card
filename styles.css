@@ -286,6 +286,64 @@ header, main, footer, .envelope-overlay, .scroll-progress {
     margin-top: 4px;
 }
 
+.sound-hint {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-top: 10px;
+    opacity: 0.9;
+    transition: opacity 0.5s ease;
+    animation: hint-pulse 2.2s infinite;
+}
+
+@keyframes hint-pulse {
+    0%, 100% { opacity: 0.6; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(-1px); }
+}
+
+.cover-sound-toggle {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--border-accent);
+    border-radius: 50%;
+    color: var(--accent-light);
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+
+.cover-sound-toggle:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: scale(1.08);
+}
+
+.cover-sound-toggle svg {
+    width: 18px;
+    height: 18px;
+}
+
+.cover-sound-toggle .icon-sound-off {
+    display: none;
+}
+
+.cover-sound-toggle.muted .icon-sound-on {
+    display: none;
+}
+
+.cover-sound-toggle.muted .icon-sound-off {
+    display: block;
+}
+
 .deva-accent {
     font-size: 0.95rem;
     color: var(--accent-light);

@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sfxSuccess.volume = 0.5;
 
     // ==========================================
-    // 2. Entrance Overlay
+    // 2. Entrance Overlay & Audio Engine
     // ==========================================
     const envelope = document.getElementById('envelope');
     const enterBtn = document.getElementById('wax-seal');
@@ -20,7 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const slokaAudio = document.getElementById('sloka-audio');
     const bgMusic = document.getElementById('bg-music');
     const soundToggle = document.getElementById('sound-toggle');
+    const coverSoundToggle = document.getElementById('cover-sound-toggle');
+    const soundHint = document.getElementById('sound-hint');
     let audioMuted = false;
+    let audioUnlocked = false;
 
     function setAudioMuted(muted) {
         audioMuted = muted;
@@ -31,34 +34,69 @@ document.addEventListener('DOMContentLoaded', () => {
             soundToggle.setAttribute('aria-pressed', String(muted));
             soundToggle.setAttribute('aria-label', muted ? 'Unmute music' : 'Mute music');
         }
+        if (coverSoundToggle) {
+            coverSoundToggle.classList.toggle('muted', muted);
+            coverSoundToggle.setAttribute('aria-pressed', String(muted));
+            coverSoundToggle.setAttribute('aria-label', muted ? 'Unmute chant' : 'Mute chant');
+        }
     }
 
-    // Try to play the chant the moment the cover lands. Browsers block audio
-    // with sound until the user has interacted with the page at least once,
-    // so this silently fails in most cases — the listener below catches the
-    // very first tap/click/keypress anywhere on the page as a fallback.
-    if (slokaAudio) {
-        slokaAudio.volume = 0.55;
-        slokaAudio.play().catch(() => {});
-
-        const startSlokaOnFirstInteraction = () => {
-            if (slokaAudio.paused && !envelope.classList.contains('opened')) {
-                slokaAudio.play().catch(() => {});
+    // Try playing sloka when cover is visible
+    function attemptPlaySloka() {
+        if (!slokaAudio || audioMuted) return;
+        if (!envelope || !envelope.classList.contains('opened')) {
+            if (slokaAudio.paused) {
+                slokaAudio.volume = 0.55;
+                const promise = slokaAudio.play();
+                if (promise !== undefined) {
+                    promise.then(() => {
+                        if (soundHint) soundHint.style.opacity = '0';
+                    }).catch(() => {
+                        // Browsers block autoplay until user gesture
+                    });
+                }
             }
-            document.removeEventListener('pointerdown', startSlokaOnFirstInteraction);
-            document.removeEventListener('keydown', startSlokaOnFirstInteraction);
-        };
-        document.addEventListener('pointerdown', startSlokaOnFirstInteraction);
-        document.addEventListener('keydown', startSlokaOnFirstInteraction);
+        }
     }
+
+    // Comprehensive unlock function triggered by any touch/click/key gesture
+    function unlockAndPlayAudio(e) {
+        if (!audioUnlocked) {
+            audioUnlocked = true;
+            if (slokaAudio) slokaAudio.load();
+            if (bgMusic) bgMusic.load();
+        }
+
+        // Avoid triggering audio play logic if clicking wax seal button directly
+        if (e && e.target && e.target.closest('#wax-seal')) return;
+
+        attemptPlaySloka();
+    }
+
+    // Attempt autoplay immediately
+    attemptPlaySloka();
+
+    // Listen to touch/pointer/click gestures across window & cover for browser audio unlock
+    const userActivationEvents = ['touchstart', 'touchend', 'click', 'pointerdown', 'keydown'];
+    userActivationEvents.forEach((evt) => {
+        if (envelope) envelope.addEventListener(evt, unlockAndPlayAudio, { passive: true });
+        document.addEventListener(evt, () => {
+            if (!audioUnlocked) {
+                audioUnlocked = true;
+                if (slokaAudio) slokaAudio.load();
+                if (bgMusic) bgMusic.load();
+            }
+        }, { once: true, passive: true });
+    });
 
     if (enterBtn && envelope) {
-        enterBtn.addEventListener('click', () => {
+        enterBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             sfxOpen.play().catch(() => {});
             if (slokaAudio) {
                 slokaAudio.pause();
             }
-            if (bgMusic) {
+            if (bgMusic && !audioMuted) {
                 bgMusic.volume = 0.45;
                 bgMusic.muted = audioMuted;
                 bgMusic.currentTime = 0;
@@ -74,6 +112,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (soundToggle) {
         soundToggle.addEventListener('click', () => {
             setAudioMuted(!audioMuted);
+        });
+    }
+
+    if (coverSoundToggle) {
+        coverSoundToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!audioUnlocked) {
+                audioUnlocked = true;
+                if (slokaAudio) slokaAudio.load();
+                if (bgMusic) bgMusic.load();
+            }
+            const newMuted = !audioMuted;
+            setAudioMuted(newMuted);
+            if (!newMuted) {
+                attemptPlaySloka();
+            }
         });
     }
 
