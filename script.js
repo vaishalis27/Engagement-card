@@ -373,6 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 10. RSVP Form Handling
     // ==========================================
     const rsvpForm = document.getElementById('rsvp-form');
+    const RSVP_WHATSAPP_NUMBER = '917800005082';
 
     if (rsvpForm) {
         rsvpForm.addEventListener('submit', (e) => {
@@ -380,6 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const name = document.getElementById('rsvp-name').value.trim();
             const guests = parseInt(document.getElementById('rsvp-guests').value, 10);
+            const guestWord = guests === 1 ? 'guest' : 'guests';
 
             const rsvpEntry = {
                 name, guests,
@@ -390,6 +392,10 @@ document.addEventListener('DOMContentLoaded', () => {
             currentRSVPs.push(rsvpEntry);
             localStorage.setItem('engagement_rsvps', JSON.stringify(currentRSVPs));
 
+            const whatsappMessage = `Hi Vaishali & Abhinav! 🎉\n\nThis is *${name}* confirming my RSVP for your engagement ceremony on 12th October 2026.\nNumber of ${guestWord}: *${guests}*\n\nLooking forward to celebrating with you!`;
+            const whatsappUrl = `https://wa.me/${RSVP_WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappUrl, '_blank', 'noopener');
+
             sfxSuccess.play().catch(() => {});
 
             if (typeof confetti === 'function') {
@@ -397,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     particleCount: 150,
                     spread: 80,
                     origin: { y: 0.6 },
-                    colors: ['#c9a25d', '#ecd6a3', '#6d2a57', '#f4ecdf'],
+                    colors: ['#d9718f', '#f0a8bd', '#a83f60', '#f6dbe2'],
                 });
             }
 
@@ -409,14 +415,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showFeedbackModal(name, guests) {
         const guestWord = guests === 1 ? 'guest' : 'guests';
-        const messageText = `Thank you, ${name}! We've noted ${guests} ${guestWord} and are absolutely thrilled to celebrate with you in Lucknow!`;
+        const messageText = `Thanks, ${name}! We've opened WhatsApp with your RSVP for ${guests} ${guestWord} pre-filled — just hit send there to confirm with us. See you in Lucknow!`;
 
         const modal = document.createElement('div');
         modal.className = 'feedback-modal';
         modal.innerHTML = `
             <div class="feedback-box">
                 <div class="feedback-icon">✦</div>
-                <h3>RSVP Received</h3>
+                <h3>Almost there!</h3>
                 <p>${messageText}</p>
                 <button type="button" class="submit-btn feedback-close">Close</button>
             </div>
