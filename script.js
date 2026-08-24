@@ -89,6 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { once: true, passive: true });
     });
 
+    // Run the scroll-reveal observer immediately rather than waiting for
+    // "Open Invitation" — hero-card sits in the initial viewport from the
+    // start, and leaving it in its pre-reveal 3D-rotated state (opacity:0,
+    // rotateX transform) the whole time the cover is showing creates a
+    // wide off-axis bounding box under perspective projection, causing
+    // real horizontal page overflow on mobile that distorts the cover layout.
+    initScrollObserver();
+
     if (enterBtn && envelope) {
         enterBtn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -104,7 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             envelope.classList.add('opened');
             body.classList.remove('locked');
-            initScrollObserver();
             updateScrollProgress();
         });
     }
