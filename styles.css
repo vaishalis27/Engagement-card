@@ -1141,8 +1141,33 @@ nav a:hover::after {
     font-style: italic;
     font-size: 1.5rem;
     color: var(--text);
-    margin-bottom: 16px;
+    margin-bottom: 6px;
     letter-spacing: 0.5px;
+}
+
+.event-deva {
+    font-size: 0.95rem;
+    color: var(--accent);
+    margin-bottom: 14px;
+}
+
+.event-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    color: var(--accent);
+    font-size: 0.6rem;
+    line-height: 1;
+}
+
+.event-divider::before,
+.event-divider::after {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--border-accent);
 }
 
 .event-time {
@@ -1160,6 +1185,20 @@ nav a:hover::after {
     margin-bottom: 16px;
 }
 
+.event-dress-label {
+    display: block;
+    font-size: 0.62rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.event-dress + .event-dress-label {
+    margin-top: 14px;
+}
+
 .event-dress {
     font-size: 0.72rem;
     background: rgba(201, 90, 120, 0.08);
@@ -1174,10 +1213,24 @@ nav a:hover::after {
 }
 
 .event-note {
-    margin-top: 18px;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.6;
+    margin-top: 20px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.92rem;
+    color: var(--text-soft);
+    line-height: 1.7;
+}
+
+.event-note::before {
+    content: '“';
+    color: var(--accent-bright);
+    font-size: 1.3em;
+}
+
+.event-note::after {
+    content: '”';
+    color: var(--accent-bright);
+    font-size: 1.3em;
 }
 
 .map-btn {
