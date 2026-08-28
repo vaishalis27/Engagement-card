@@ -1,4 +1,4 @@
-// Live WebGL backdrop: drifting 3D rose petals and light particles.
+// Live WebGL backdrop: drifting 3D marigold petals and light particles.
 // Runs behind the glass UI on #scene-canvas.
 import * as THREE from 'three';
 import { RoomEnvironment } from 'https://unpkg.com/three@0.160.0/examples/jsm/environments/RoomEnvironment.js';
@@ -13,7 +13,7 @@ function initScene(canvas) {
     const isCompact = window.matchMedia('(max-width: 820px)').matches;
 
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0xfbe1e8, 0.045);
+    scene.fog = new THREE.FogExp2(0xfbe8b8, 0.045);
 
     const camera = new THREE.PerspectiveCamera(42, window.innerWidth / window.innerHeight, 0.1, 100);
     camera.position.set(0, 0, 11);
@@ -30,16 +30,16 @@ function initScene(canvas) {
     scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0.04).texture;
 
     // -----------------------------------------------------------
-    // Lighting — soft blush key + dusty-rose rim, bright fill for a light backdrop
+    // Lighting — warm cream key + golden-amber rim, bright fill for a light backdrop
     // -----------------------------------------------------------
-    scene.add(new THREE.HemisphereLight(0xfff3f5, 0xf3b8c8, 1.4));
-    scene.add(new THREE.AmbientLight(0xfff0f2, 0.8));
+    scene.add(new THREE.HemisphereLight(0xfff8e5, 0xf0c15a, 1.4));
+    scene.add(new THREE.AmbientLight(0xfff5dc, 0.8));
 
-    const keyLight = new THREE.PointLight(0xffeef2, 6, 40, 2);
+    const keyLight = new THREE.PointLight(0xfff2d5, 6, 40, 2);
     keyLight.position.set(6, 5, 8);
     scene.add(keyLight);
 
-    const rimLight = new THREE.PointLight(0xc2355a, 4, 40, 2);
+    const rimLight = new THREE.PointLight(0xc9821a, 4, 40, 2);
     rimLight.position.set(-7, -3, 4);
     scene.add(rimLight);
 
@@ -54,7 +54,7 @@ function initScene(canvas) {
     scene.add(heroGroup);
 
     // -----------------------------------------------------------
-    // Falling 3D rose petals — tumbling, gently swaying as they drift down
+    // Falling 3D marigold petals — tumbling, gently swaying as they drift down
     // -----------------------------------------------------------
     function createPetalGeometry() {
         const shape = new THREE.Shape();
@@ -67,7 +67,7 @@ function initScene(canvas) {
     }
 
     const petalGeometry = createPetalGeometry();
-    const petalColors = [0xd94f70, 0xe8879e, 0xf3b6c4, 0xc2355a, 0xf6d3da];
+    const petalColors = [0xf0a020, 0xf7c948, 0xffdb7a, 0xd9821a, 0xfceec0];
     const petalMaterials = petalColors.map((color) => new THREE.MeshStandardMaterial({
         color,
         roughness: 0.75,
@@ -151,9 +151,9 @@ function initScene(canvas) {
         c.width = c.height = size;
         const ctx = c.getContext('2d');
         const gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
-        gradient.addColorStop(0, 'rgba(240,180,195,0.95)');
-        gradient.addColorStop(0.45, 'rgba(240,180,195,0.55)');
-        gradient.addColorStop(1, 'rgba(240,180,195,0)');
+        gradient.addColorStop(0, 'rgba(250,210,120,0.95)');
+        gradient.addColorStop(0.45, 'rgba(250,210,120,0.55)');
+        gradient.addColorStop(1, 'rgba(250,210,120,0)');
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, size, size);
         return new THREE.CanvasTexture(c);

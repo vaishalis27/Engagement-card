@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const slokaAudio = document.getElementById('sloka-audio');
     const bgMusic = document.getElementById('bg-music');
     const soundToggle = document.getElementById('sound-toggle');
-    const coverSoundToggle = document.getElementById('cover-sound-toggle');
     const soundHint = document.getElementById('sound-hint');
     let audioMuted = false;
     let audioUnlocked = false;
@@ -33,11 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
             soundToggle.classList.toggle('muted', muted);
             soundToggle.setAttribute('aria-pressed', String(muted));
             soundToggle.setAttribute('aria-label', muted ? 'Unmute music' : 'Mute music');
-        }
-        if (coverSoundToggle) {
-            coverSoundToggle.classList.toggle('muted', muted);
-            coverSoundToggle.setAttribute('aria-pressed', String(muted));
-            coverSoundToggle.setAttribute('aria-label', muted ? 'Unmute chant' : 'Mute chant');
         }
     }
 
@@ -115,22 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (coverSoundToggle) {
-        coverSoundToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (!audioUnlocked) {
-                audioUnlocked = true;
-                if (slokaAudio) slokaAudio.load();
-                if (bgMusic) bgMusic.load();
-            }
-            const newMuted = !audioMuted;
-            setAudioMuted(newMuted);
-            if (!newMuted) {
-                attemptPlaySloka();
-            }
-        });
-    }
-
     // ==========================================
     // 4. 3D Parallax Tilting Glass Cards (CSS)
     // ==========================================
@@ -197,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         x: (rect.left + rect.width / 2) / window.innerWidth,
                         y: (rect.top + rect.height / 2) / window.innerHeight,
                     },
-                    colors: ['#d9718f', '#f0a8bd', '#a83f60', '#f6dbe2'],
+                    colors: ['#d9821a', '#f4c65a', '#9c6f14', '#fbe8b8'],
                 });
             }
         };
@@ -403,7 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     particleCount: 150,
                     spread: 80,
                     origin: { y: 0.6 },
-                    colors: ['#d9718f', '#f0a8bd', '#a83f60', '#f6dbe2'],
+                    colors: ['#d9821a', '#f4c65a', '#9c6f14', '#fbe8b8'],
                 });
             }
 

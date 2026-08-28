@@ -1,28 +1,28 @@
 /* =============================================================
    Vaishali & Abhinav — Modern Luxe Engagement Invitation
-   Light theme. Blush watercolor base with a dusty-rose accent family.
+   Light theme. Warm ivory base with a marigold-gold accent family.
    ============================================================= */
 
 :root {
     /* Core surfaces */
-    --bg: #fdf5f6;
-    --bg-soft: #f6dbe2;
+    --bg: #fffaf0;
+    --bg-soft: #fbe8b8;
     --bg-card: rgba(255, 255, 255, 0.55);
     --bg-card-strong: rgba(255, 255, 255, 0.8);
     --input-bg: rgba(255, 255, 255, 0.6);
-    --border-soft: rgba(90, 40, 55, 0.08);
-    --border-accent: rgba(201, 90, 120, 0.4);
+    --border-soft: rgba(90, 65, 15, 0.08);
+    --border-accent: rgba(196, 140, 20, 0.4);
 
-    /* Accent family (dusty rose) */
-    --accent-bright: #eda9bf;
-    --accent: #c85a78;
-    --accent-light: #a83f60;
-    --accent-deep: #6e2740;
+    /* Accent family (marigold gold) */
+    --accent-bright: #f4c65a;
+    --accent: #9c6f0c;
+    --accent-light: #5c3f0a;
+    --accent-deep: #3a2706;
 
     /* Text */
-    --text: #2c2024;
-    --text-soft: #6b525a;
-    --text-muted: #9c828a;
+    --text: #17130a;
+    --text-soft: #2e2412;
+    --text-muted: #453a22;
 
     /* Fonts */
     --font-display: 'Fraunces', serif;
@@ -33,7 +33,7 @@
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-    --shadow-card: 0 24px 50px -22px rgba(120, 45, 70, 0.24);
+    --shadow-card: 0 24px 50px -22px rgba(120, 85, 15, 0.24);
 }
 
 * {
@@ -72,7 +72,7 @@ body.locked {
     height: 100%;
     z-index: 0;
     display: block;
-    background: radial-gradient(120% 90% at 50% 0%, #fff9fa 0%, #fbe1e8 55%, #f5c9d4 100%);
+    background: radial-gradient(120% 90% at 50% 0%, #fffdf5 0%, #fbe8b8 55%, #f0c15a 100%);
 }
 
 .grain-overlay {
@@ -107,7 +107,7 @@ header, main, footer, .envelope-overlay, .scroll-progress {
 
 .scroll-progress-track {
     fill: none;
-    stroke: rgba(90, 40, 55, 0.08);
+    stroke: rgba(90, 65, 15, 0.08);
     stroke-width: 2;
 }
 
@@ -127,7 +127,7 @@ header, main, footer, .envelope-overlay, .scroll-progress {
 .envelope-overlay {
     position: fixed;
     inset: 0;
-    background: radial-gradient(120% 100% at 50% 20%, rgba(201, 90, 120, 0.16) 0%, rgba(255, 248, 250, 0.97) 55%, #fef6f8 100%);
+    background: radial-gradient(120% 100% at 50% 20%, rgba(196, 140, 20, 0.16) 0%, rgba(255, 250, 235, 0.97) 55%, #fffaf0 100%);
     z-index: 10000;
     display: flex;
     justify-content: center;
@@ -173,7 +173,7 @@ header, main, footer, .envelope-overlay, .scroll-progress {
     pointer-events: none;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 90'%3E%3Cpath d='M32,6 C14,4 4,22 12,38 C18,50 32,50 33,64 C34,76 22,84 10,80 C24,94 52,88 48,64 C45,50 30,48 26,36 C20,22 26,10 32,6 Z' fill='none' stroke='%23c85a78' stroke-width='1.6'/%3E%3Cpath d='M27,20 C23,27 23,35 30,40' fill='none' stroke='%23c85a78' stroke-width='1.2'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 90'%3E%3Cpath d='M32,6 C14,4 4,22 12,38 C18,50 32,50 33,64 C34,76 22,84 10,80 C24,94 52,88 48,64 C45,50 30,48 26,36 C20,22 26,10 32,6 Z' fill='none' stroke='%23d19a1f' stroke-width='1.6'/%3E%3Cpath d='M27,20 C23,27 23,35 30,40' fill='none' stroke='%23d19a1f' stroke-width='1.2'/%3E%3C/svg%3E");
 }
 
 .corner-motif.corner-tl {
@@ -194,7 +194,7 @@ header, main, footer, .envelope-overlay, .scroll-progress {
     inset: 0;
     z-index: -1;
     border-radius: inherit;
-    background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%), rgba(201, 90, 120, 0.16), transparent 70%);
+    background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%), rgba(196, 140, 20, 0.16), transparent 70%);
     opacity: 0;
     transition: opacity 0.4s;
     pointer-events: none;
@@ -207,7 +207,7 @@ header, main, footer, .envelope-overlay, .scroll-progress {
     inset: 0;
     z-index: -1;
     border-radius: inherit;
-    background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgba(201, 90, 120, 0.16), transparent 70%);
+    background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgba(196, 140, 20, 0.16), transparent 70%);
     opacity: 0;
     transition: opacity 0.4s;
     pointer-events: none;
@@ -232,7 +232,7 @@ header, main, footer, .envelope-overlay, .scroll-progress {
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid var(--accent-bright);
-    box-shadow: 0 0 0 5px var(--bg-card-strong), 0 10px 26px rgba(201, 90, 120, 0.35);
+    box-shadow: 0 0 0 5px var(--bg-card-strong), 0 10px 26px rgba(196, 140, 20, 0.35);
 }
 
 .ganesh-badge.small {
@@ -302,48 +302,6 @@ header, main, footer, .envelope-overlay, .scroll-progress {
 @keyframes hint-pulse {
     0%, 100% { opacity: 0.6; transform: translateY(0); }
     50% { opacity: 1; transform: translateY(-1px); }
-}
-
-.cover-sound-toggle {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    padding: 0;
-    background: rgba(255, 255, 255, 0.5);
-    border: 1px solid var(--border-accent);
-    border-radius: 50%;
-    color: var(--accent-light);
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s, transform 0.3s;
-}
-
-.cover-sound-toggle:hover {
-    background: var(--accent);
-    color: #fff;
-    transform: scale(1.08);
-}
-
-.cover-sound-toggle svg {
-    width: 18px;
-    height: 18px;
-}
-
-.cover-sound-toggle .icon-sound-off {
-    display: none;
-}
-
-.cover-sound-toggle.muted .icon-sound-on {
-    display: none;
-}
-
-.cover-sound-toggle.muted .icon-sound-off {
-    display: block;
 }
 
 .deva-accent {
@@ -429,7 +387,7 @@ header, main, footer, .envelope-overlay, .scroll-progress {
     height: 64px;
     border-radius: 50%;
     background: radial-gradient(circle at 35% 30%, var(--accent-bright), var(--accent) 55%, var(--accent-deep) 100%);
-    box-shadow: 0 0 0 1px var(--border-accent), 0 12px 26px rgba(201, 90, 120, 0.3);
+    box-shadow: 0 0 0 1px var(--border-accent), 0 12px 26px rgba(196, 140, 20, 0.3);
     position: relative;
     display: flex;
     align-items: center;
@@ -452,7 +410,7 @@ header, main, footer, .envelope-overlay, .scroll-progress {
     inset: 13px;
     border-radius: 50%;
     background: var(--bg);
-    box-shadow: inset 0 2px 6px rgba(120, 45, 70, 0.22);
+    box-shadow: inset 0 2px 6px rgba(120, 85, 15, 0.22);
     z-index: 1;
 }
 
@@ -470,7 +428,7 @@ header, main, footer, .envelope-overlay, .scroll-progress {
 
 .enter-btn:hover .enter-btn-ring {
     transform: scale(1.08) rotate(10deg);
-    box-shadow: 0 0 0 1px var(--accent), 0 16px 32px rgba(201, 90, 120, 0.42);
+    box-shadow: 0 0 0 1px var(--accent), 0 16px 32px rgba(196, 140, 20, 0.42);
 }
 
 .enter-btn-label {
@@ -486,7 +444,7 @@ header, main, footer, .envelope-overlay, .scroll-progress {
    Header & Navigation
    ------------------------------------------------------------- */
 header {
-    background: rgba(255, 248, 250, 0.75);
+    background: rgba(255, 250, 235, 0.75);
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-soft);
@@ -680,7 +638,7 @@ nav a:hover::after {
 .hero-video-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(120% 90% at 50% 15%, rgba(253, 245, 246, 0.18) 0%, rgba(253, 245, 246, 0.42) 55%, rgba(253, 245, 246, 0.62) 100%);
+    background: radial-gradient(120% 90% at 50% 15%, rgba(253, 248, 230, 0.18) 0%, rgba(253, 248, 230, 0.42) 55%, rgba(253, 248, 230, 0.62) 100%);
 }
 
 .hero-card {
@@ -743,13 +701,23 @@ nav a:hover::after {
 .invite-name:hover,
 .invite-name:focus-visible {
     transform: translateY(-5px) scale(1.03);
-    filter: drop-shadow(0 6px 14px rgba(201, 90, 120, 0.35));
+    filter: drop-shadow(0 6px 14px rgba(196, 140, 20, 0.35));
 }
 
 .invite-parent {
     font-size: 0.78rem;
     line-height: 1.6;
     color: var(--text-soft);
+    letter-spacing: 0.3px;
+}
+
+.invite-grandparent {
+    margin-top: 4px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.7rem;
+    line-height: 1.6;
+    color: var(--text-muted);
     letter-spacing: 0.3px;
 }
 
@@ -950,7 +918,7 @@ nav a:hover::after {
 .countdown-box:hover {
     transform: translateY(-6px) scale(1.04) rotateX(8deg);
     border-color: var(--border-accent);
-    box-shadow: 0 14px 26px -14px rgba(120, 45, 70, 0.4);
+    box-shadow: 0 14px 26px -14px rgba(120, 85, 15, 0.4);
 }
 
 .countdown-value {
@@ -1044,7 +1012,7 @@ nav a:hover::after {
         height: 10px;
         border-radius: 50%;
         background: var(--accent);
-        box-shadow: 0 0 0 5px var(--bg), 0 0 14px rgba(201, 90, 120, 0.55);
+        box-shadow: 0 0 0 5px var(--bg), 0 0 14px rgba(196, 140, 20, 0.55);
     }
 }
 
@@ -1134,7 +1102,7 @@ nav a:hover::after {
     opacity: 0.6;
     pointer-events: none;
     transition: opacity 0.4s;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 110'%3E%3Cpath d='M14,108 V56 C14,20 40,4 80,4 C120,4 146,20 146,56 V108' fill='none' stroke='%23eda9bf' stroke-width='2'/%3E%3Cpath d='M28,108 V58 C28,30 48,16 80,16 C112,16 132,30 132,58 V108' fill='none' stroke='%23c85a78' stroke-width='1.4' opacity='0.7'/%3E%3Cg fill='%23eda9bf'%3E%3Ccircle cx='14' cy='56' r='2.6'/%3E%3Ccircle cx='36' cy='30' r='2.2'/%3E%3Ccircle cx='80' cy='4' r='2.6'/%3E%3Ccircle cx='124' cy='30' r='2.2'/%3E%3Ccircle cx='146' cy='56' r='2.6'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 110'%3E%3Cpath d='M14,108 V56 C14,20 40,4 80,4 C120,4 146,20 146,56 V108' fill='none' stroke='%23f4c65a' stroke-width='2'/%3E%3Cpath d='M28,108 V58 C28,30 48,16 80,16 C112,16 132,30 132,58 V108' fill='none' stroke='%23d19a1f' stroke-width='1.4' opacity='0.7'/%3E%3Cg fill='%23f4c65a'%3E%3Ccircle cx='14' cy='56' r='2.6'/%3E%3Ccircle cx='36' cy='30' r='2.2'/%3E%3Ccircle cx='80' cy='4' r='2.6'/%3E%3Ccircle cx='124' cy='30' r='2.2'/%3E%3Ccircle cx='146' cy='56' r='2.6'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 .event-card:hover .event-arch {
@@ -1178,10 +1146,10 @@ nav a:hover::after {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.9), rgba(201, 90, 120, 0.12) 70%);
+    background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.9), rgba(196, 140, 20, 0.12) 70%);
     border: 1px solid var(--border-accent);
     color: var(--accent-light);
-    box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.8), inset 0 -6px 10px rgba(201, 90, 120, 0.12), 0 10px 18px -8px rgba(120, 45, 70, 0.35);
+    box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.8), inset 0 -6px 10px rgba(196, 140, 20, 0.12), 0 10px 18px -8px rgba(120, 85, 15, 0.35);
     transform: translateZ(20px);
     transition: transform 0.4s var(--ease-spring);
 }
@@ -1261,7 +1229,7 @@ nav a:hover::after {
 
 .event-dress {
     font-size: 0.72rem;
-    background: rgba(201, 90, 120, 0.08);
+    background: rgba(196, 140, 20, 0.08);
     padding: 8px 16px;
     border-radius: 20px;
     display: inline-block;
@@ -1395,13 +1363,13 @@ nav a:hover::after {
 .form-control:focus {
     border-color: var(--accent);
     background-color: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 0 0 3px rgba(201, 90, 120, 0.14);
+    box-shadow: 0 0 0 3px rgba(196, 140, 20, 0.14);
 }
 
 select.form-control {
     cursor: pointer;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c85a78'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d19a1f'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 15px center;
     background-size: 20px;
@@ -1416,7 +1384,7 @@ select.form-control option {
     width: 100%;
     background: linear-gradient(135deg, var(--accent-deep) 0%, var(--accent) 50%, var(--accent-bright) 100%);
     border: none;
-    color: #fef6f8;
+    color: #fffaf0;
     padding: 17px;
     border-radius: 14px;
     font-size: 0.85rem;
@@ -1424,13 +1392,13 @@ select.form-control option {
     text-transform: uppercase;
     letter-spacing: 2px;
     cursor: pointer;
-    box-shadow: 0 10px 26px rgba(201, 90, 120, 0.3);
+    box-shadow: 0 10px 26px rgba(196, 140, 20, 0.3);
     transition: all 0.35s var(--ease-spring);
 }
 
 .submit-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 14px 32px rgba(201, 90, 120, 0.42);
+    box-shadow: 0 14px 32px rgba(196, 140, 20, 0.42);
 }
 
 .submit-btn:active {
@@ -1443,7 +1411,7 @@ select.form-control option {
 .feedback-modal {
     position: fixed;
     inset: 0;
-    background: rgba(40, 20, 28, 0.45);
+    background: rgba(45, 32, 10, 0.45);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     display: flex;
@@ -1507,7 +1475,7 @@ select.form-control option {
    Footer
    ------------------------------------------------------------- */
 footer {
-    background: linear-gradient(180deg, transparent, rgba(201, 90, 120, 0.1));
+    background: linear-gradient(180deg, transparent, rgba(196, 140, 20, 0.1));
     border-top: 1px solid var(--border-soft);
     color: var(--text-soft);
     text-align: center;
@@ -1576,7 +1544,7 @@ footer {
         top: 64px;
         left: 0;
         right: 0;
-        background: rgba(255, 248, 250, 0.97);
+        background: rgba(255, 250, 235, 0.97);
         -webkit-backdrop-filter: blur(20px);
         backdrop-filter: blur(20px);
         border-bottom: 1px solid var(--border-soft);
