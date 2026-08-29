@@ -351,7 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 10. RSVP Form Handling
     // ==========================================
     const rsvpForm = document.getElementById('rsvp-form');
-    const RSVP_WHATSAPP_NUMBER = '917800005082';
+    const RSVP_WHATSAPP_NUMBER = '917800005080';
 
     if (rsvpForm) {
         rsvpForm.addEventListener('submit', (e) => {
@@ -370,7 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentRSVPs.push(rsvpEntry);
             localStorage.setItem('engagement_rsvps', JSON.stringify(currentRSVPs));
 
-            const whatsappMessage = `Hi Vaishali & Abhinav! 🎉\n\nThis is *${name}* confirming my RSVP for your engagement ceremony on 12th October 2026.\nNumber of ${guestWord}: *${guests}*\n\nLooking forward to celebrating with you!`;
+            const whatsappMessage = `This is *${name}* confirming my RSVP for your engagement ceremony on 12th October 2026.\nNumber of ${guestWord}: *${guests}*\n\nLooking forward to celebrating with you!`;
             const whatsappUrl = `https://wa.me/${RSVP_WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
             window.open(whatsappUrl, '_blank', 'noopener');
 
