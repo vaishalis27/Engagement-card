@@ -54,7 +54,7 @@ function initScene(canvas) {
     scene.add(heroGroup);
 
     // -----------------------------------------------------------
-    // Falling 3D marigold petals — tumbling, gently swaying as they drift down
+    // Falling 3D red flower petals — tumbling, gently swaying as they drift down
     // -----------------------------------------------------------
     function createPetalGeometry() {
         const shape = new THREE.Shape();
@@ -67,7 +67,7 @@ function initScene(canvas) {
     }
 
     const petalGeometry = createPetalGeometry();
-    const petalColors = [0xf0a020, 0xf7c948, 0xffdb7a, 0xd9821a, 0xfceec0];
+    const petalColors = [0xc41e1e, 0xe63946, 0xff6b5a, 0x8b0000, 0xf4a6a0];
     const petalMaterials = petalColors.map((color) => new THREE.MeshStandardMaterial({
         color,
         roughness: 0.75,
@@ -79,7 +79,7 @@ function initScene(canvas) {
         emissiveIntensity: 0.06,
     }));
 
-    const petalCount = isCompact ? 48 : 90;
+    const petalCount = isCompact ? 90 : 160;
     const petals = [];
     const petalSpread = { x: 15, yTop: 10, yBottom: -10, z: 8 };
 

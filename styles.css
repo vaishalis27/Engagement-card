@@ -15,14 +15,14 @@
 
     /* Accent family (marigold gold) */
     --accent-bright: #f4c65a;
-    --accent: #9c6f0c;
-    --accent-light: #5c3f0a;
-    --accent-deep: #3a2706;
+    --accent: #b8830f;
+    --accent-light: #a8460f;
+    --accent-deep: #7a2010;
 
-    /* Text */
-    --text: #17130a;
-    --text-soft: #2e2412;
-    --text-muted: #453a22;
+    /* Text (deep maroon-red, pairs with the gold accents) */
+    --text: #5c1010;
+    --text-soft: #7a2818;
+    --text-muted: #9c5a2a;
 
     /* Fonts */
     --font-display: 'Fraunces', serif;
