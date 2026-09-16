@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Tiro+Devanagari+Hindi:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=36">
+    <link rel="stylesheet" href="styles.css?v=37">
 </head>
 <body class="locked">
 
@@ -97,7 +97,6 @@
             <nav id="nav-menu">
                 <a href="#hero">Home</a>
                 <a href="#events">Celebration</a>
-                <a href="#rsvp">RSVP</a>
             </nav>
             <button type="button" class="sound-toggle" id="sound-toggle" aria-label="Mute chant" aria-pressed="false">
                 <svg class="icon-sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M17 8.5c1.5 1.9 1.5 5.1 0 7M19.5 6c2.5 3 2.5 9 0 12"/></svg>
@@ -340,34 +339,6 @@
             </div>
         </section>
 
-        <!-- RSVP Form Section -->
-        <section class="section" id="rsvp">
-            <span class="deva deva-accent center">सादर आमंत्रण</span>
-            <div class="rsvp-wrapper fade-in-up spotlight">
-                <span class="corner-motif corner-br" aria-hidden="true"></span>
-                <form id="rsvp-form">
-                    <div class="form-group-row">
-                        <div class="form-group">
-                            <label for="rsvp-name">Full Name</label>
-                            <input type="text" id="rsvp-name" class="form-control" placeholder="Enter your name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="rsvp-guests">Number of Guests</label>
-                            <select id="rsvp-guests" class="form-control">
-                                <option value="1">1 Guest</option>
-                                <option value="2">2 Guests</option>
-                                <option value="3">3 Guests</option>
-                                <option value="4">4 Guests</option>
-                                <option value="5">5+ Guests</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="submit-btn" id="rsvp-submit-btn">Send RSVP</button>
-                </form>
-            </div>
-        </section>
-
     </main>
 
     <!-- Footer -->
@@ -387,6 +358,6 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script type="module" src="scene.js?v=7"></script>
-    <script src="script.js?v=15"></script>
+    <script src="script.js?v=16"></script>
 </body>
 </html>

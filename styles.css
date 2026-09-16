@@ -200,8 +200,7 @@ header, main, footer, .envelope-overlay, .scroll-progress {
     pointer-events: none;
 }
 
-.event-card-face.spotlight::after,
-.rsvp-wrapper.spotlight::after {
+.event-card-face.spotlight::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -215,8 +214,7 @@ header, main, footer, .envelope-overlay, .scroll-progress {
 
 .hero-card.spotlight:hover::before,
 .envelope-container.spotlight:hover::before,
-.event-card-face.spotlight:hover::after,
-.rsvp-wrapper.spotlight:hover::after {
+.event-card-face.spotlight:hover::after {
     opacity: 1;
 }
 
@@ -1286,192 +1284,6 @@ nav a:hover::after {
 }
 
 /* -------------------------------------------------------------
-   RSVP Form
-   ------------------------------------------------------------- */
-#rsvp {
-    perspective: 1400px;
-}
-
-.rsvp-wrapper {
-    background: var(--bg-card);
-    border: 1px solid var(--border-soft);
-    -webkit-backdrop-filter: blur(18px);
-    backdrop-filter: blur(18px);
-    border-radius: 26px;
-    max-width: 720px;
-    margin: 0 auto;
-    box-shadow: var(--shadow-card);
-    padding: 56px 46px;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.1s ease;
-}
-
-.rsvp-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-}
-
-.form-group-row {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 22px;
-}
-
-.form-group-row > div {
-    flex: 1;
-}
-
-.form-group {
-    margin-bottom: 26px;
-    position: relative;
-}
-
-.form-group label {
-    display: block;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 1.8px;
-    color: var(--text-soft);
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.form-control {
-    width: 100%;
-    padding: 13px 18px;
-    background-color: var(--input-bg);
-    border: 1px solid var(--border-soft);
-    border-radius: 12px;
-    color: var(--text);
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    font-weight: 500;
-    outline: none;
-    transition: all 0.3s;
-}
-
-.form-control::placeholder {
-    color: var(--text-muted);
-}
-
-.form-control:focus {
-    border-color: var(--accent);
-    background-color: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 0 0 3px rgba(196, 140, 20, 0.14);
-}
-
-select.form-control {
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d19a1f'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 15px center;
-    background-size: 20px;
-}
-
-select.form-control option {
-    background-color: var(--bg);
-    color: var(--text);
-}
-
-.submit-btn {
-    width: 100%;
-    background: linear-gradient(135deg, var(--accent-deep) 0%, var(--accent) 50%, var(--accent-bright) 100%);
-    border: none;
-    color: #fffaf0;
-    padding: 17px;
-    border-radius: 14px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
-    box-shadow: 0 10px 26px rgba(196, 140, 20, 0.3);
-    transition: all 0.35s var(--ease-spring);
-}
-
-.submit-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 14px 32px rgba(196, 140, 20, 0.42);
-}
-
-.submit-btn:active {
-    transform: translateY(-1px);
-}
-
-/* -------------------------------------------------------------
-   RSVP Feedback Modal
-   ------------------------------------------------------------- */
-.feedback-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(45, 32, 10, 0.45);
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 20000;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.feedback-modal.active {
-    opacity: 1;
-}
-
-.feedback-box {
-    background: var(--bg);
-    border: 1px solid var(--border-accent);
-    padding: 44px 30px;
-    border-radius: 22px;
-    max-width: 420px;
-    width: 90%;
-    text-align: center;
-    box-shadow: var(--shadow-card);
-    transform: scale(0.85);
-    transition: transform 0.35s var(--ease-spring);
-}
-
-.feedback-modal.active .feedback-box {
-    transform: scale(1);
-}
-
-.feedback-icon {
-    font-size: 2.2rem;
-    color: var(--accent);
-    margin-bottom: 16px;
-}
-
-.feedback-box h3 {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 14px;
-    font-size: 1.4rem;
-}
-
-.feedback-box p {
-    font-size: 0.9rem;
-    color: var(--text-soft);
-    line-height: 1.6;
-    margin-bottom: 26px;
-}
-
-.feedback-close {
-    padding: 12px 28px;
-    width: auto;
-    display: inline-block;
-}
-
-/* -------------------------------------------------------------
    Footer
    ------------------------------------------------------------- */
 footer {
@@ -1588,15 +1400,6 @@ footer {
 
     .section {
         padding: 80px 16px;
-    }
-
-    .rsvp-wrapper {
-        padding: 36px 22px;
-    }
-
-    .form-group-row {
-        flex-direction: column;
-        gap: 0;
     }
 
     .envelope-container {

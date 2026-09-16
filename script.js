@@ -7,9 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Sound Effects Registry
     // ==========================================
     const sfxOpen = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-84.wav');
-    const sfxSuccess = new Audio('https://assets.mixkit.co/active_storage/sfx/2019/2019-84.wav');
     sfxOpen.volume = 0.5;
-    sfxSuccess.volume = 0.5;
 
     // ==========================================
     // 2. Entrance Overlay & Audio Engine
@@ -133,13 +131,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const rsvpWrapper = document.querySelector('.rsvp-wrapper');
     const eventCards = document.querySelectorAll('.event-card');
 
     if (!isMobile) {
         attachTilt(heroCard, 28, 32);
         attachTilt(envContainer, 20, 24);
-        attachTilt(rsvpWrapper, 50, 60);
         eventCards.forEach((card) => attachTilt(card, 55, 65));
     }
 
@@ -347,71 +343,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==========================================
-    // 10. RSVP Form Handling
-    // ==========================================
-    const rsvpForm = document.getElementById('rsvp-form');
-    const RSVP_WHATSAPP_NUMBER = '917800005080';
-
-    if (rsvpForm) {
-        rsvpForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const name = document.getElementById('rsvp-name').value.trim();
-            const guests = parseInt(document.getElementById('rsvp-guests').value, 10);
-            const guestWord = guests === 1 ? 'guest' : 'guests';
-
-            const rsvpEntry = {
-                name, guests,
-                timestamp: new Date().toISOString(),
-            };
-
-            const currentRSVPs = JSON.parse(localStorage.getItem('engagement_rsvps')) || [];
-            currentRSVPs.push(rsvpEntry);
-            localStorage.setItem('engagement_rsvps', JSON.stringify(currentRSVPs));
-
-            const whatsappMessage = `This is *${name}* confirming my RSVP for your engagement ceremony on 12th October 2026.\nNumber of ${guestWord}: *${guests}*\n\nLooking forward to celebrating with you!`;
-            const whatsappUrl = `https://wa.me/${RSVP_WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
-            window.open(whatsappUrl, '_blank', 'noopener');
-
-            sfxSuccess.play().catch(() => {});
-
-            if (typeof confetti === 'function') {
-                confetti({
-                    particleCount: 150,
-                    spread: 80,
-                    origin: { y: 0.6 },
-                    colors: ['#d9821a', '#f4c65a', '#9c6f14', '#fbe8b8'],
-                });
-            }
-
-            showFeedbackModal(name, guests);
-
-            rsvpForm.reset();
-        });
-    }
-
-    function showFeedbackModal(name, guests) {
-        const guestWord = guests === 1 ? 'guest' : 'guests';
-        const messageText = `Thanks, ${name}! We've opened WhatsApp with your RSVP for ${guests} ${guestWord} pre-filled — just hit send there to confirm with us. See you in Lucknow!`;
-
-        const modal = document.createElement('div');
-        modal.className = 'feedback-modal';
-        modal.innerHTML = `
-            <div class="feedback-box">
-                <div class="feedback-icon">✦</div>
-                <h3>Almost there!</h3>
-                <p>${messageText}</p>
-                <button type="button" class="submit-btn feedback-close">Close</button>
-            </div>
-        `;
-        document.body.appendChild(modal);
-
-        requestAnimationFrame(() => modal.classList.add('active'));
-
-        modal.querySelector('.feedback-close').addEventListener('click', () => {
-            modal.classList.remove('active');
-            setTimeout(() => modal.remove(), 300);
-        });
-    }
 });
